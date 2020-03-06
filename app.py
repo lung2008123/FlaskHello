@@ -5,7 +5,6 @@ It contains the definition of routes and views for the application.
 
 from flask import Flask
 from flask import request
-from time import sleep
 app = Flask(__name__)
 
 # Make the WSGI interface available at the top level so wfastcgi can get it.
