@@ -51,6 +51,7 @@ def cal(number):
     print(str(answer))
     return str(answer)
 
+# https://flask-hello-dragon-1.azurewebsites.net/calculate?number=32
 '''working'''
 @app.route('/calculate')
 def cal_1():
@@ -66,9 +67,14 @@ def android_API(search_query):
     # sleep(1.5) # wait 1.5 second
     # print("Waiting ends, returning " + str(search_query) + " and dictionary.")
     
-    temp_dict = {'label': 'Support', 'url': 'google.com'}
+    temp_dict = {'label': 'Support', 'url': 'google.com', 'evidence': 'Is ghost is human I look out can!!!'}
     temp_dict['search_query'] = search_query
     return temp_dict
+
+# try3 = requests.get('https://flask-hello-dragon-1.azurewebsites.net/Android/' + "dsf")
+# try3.json()
+# {'label': 'Support', 'search_query': 'dsf', 'url': 'google.com'}
+
 
 
 '''
