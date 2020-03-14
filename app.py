@@ -2,7 +2,7 @@
 This script runs the application using a development server.
 It contains the definition of routes and views for the application.
 """
-
+import time
 from flask import Flask
 from flask import request
 app = Flask(__name__)
@@ -71,6 +71,18 @@ def android_API(search_query):
     temp_dict['search_query'] = search_query
     return temp_dict
 
+
+'''Android try with time wait'''
+@app.route('/Android_wait/<search_query>')
+def android_API(search_query):
+    time.sleep(5) # wait 5 second
+    # print("Waiting ends, returning " + str(search_query) + " and dictionary.")
+
+    temp_dict = {'label': 'Support', 'url': 'google.com', 'evidence': 'Is ghost is human I look out can!!!'}
+    temp_dict['search_query'] = search_query
+    return temp_dict
+
+
 # try3 = requests.get('https://flask-hello-dragon-1.azurewebsites.net/Android/' + "dsf")
 # try3.json()
 # {'label': 'Support', 'search_query': 'dsf', 'url': 'google.com'}
@@ -90,3 +102,11 @@ if __name__ == '__main__':
     except ValueError:
         PORT = 5555
     app.run(HOST, PORT)
+
+
+
+"""
+git push to git push azure-first-working master
+
+"""
+
