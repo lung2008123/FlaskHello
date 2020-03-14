@@ -74,8 +74,8 @@ def android_API(search_query):
 
 '''Android try with time wait'''
 @app.route('/Android_wait/<search_query>')
-def android_API(search_query):
-    time.sleep(5) # wait 5 second
+def android_API_wait(search_query):
+    time.sleep(3) # wait 3 second
     # print("Waiting ends, returning " + str(search_query) + " and dictionary.")
 
     temp_dict = {'label': 'Support', 'url': 'google.com', 'evidence': 'Is ghost is human I look out can!!!'}
