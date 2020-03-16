@@ -75,17 +75,30 @@ def android_API(search_query):
 '''Android try with time wait'''
 @app.route('/Android_wait/<search_query>')
 def android_API_wait(search_query):
+    global temp_dict
     time.sleep(3) # wait 3 second
     # print("Waiting ends, returning " + str(search_query) + " and dictionary.")
 
-    temp_dict = {'label': 'Support', 'url': 'google.com', 'evidence': 'Is ghost is human I look out can!!!'}
+    if search_query == "Fake":
+        temp_dict = {'label': 'REFUTES', 'url': 'google.com', 'evidence': 'Is ghost is human I look out can!!!'}
+    elif search_query == "Fact":
+        temp_dict = {'label': 'SUPPORTS', 'url': 'google.com', 'evidence': 'Is ghost is human I look out can!!!'}
+    elif search_query == "Ne":
+        temp_dict = {'label': 'NOT ENOUGH INFO', 'url': 'google.com', 'evidence': 'Is ghost is human I look out can!!!'}
+
     temp_dict['search_query'] = search_query
+    # temp_dict = {'label': 'Support', 'url': 'google.com', 'evidence': 'Is ghost is human I look out can!!!'}
+    # temp_dict['search_query'] = search_query
     return temp_dict
 
 
 # try3 = requests.get('https://flask-hello-dragon-1.azurewebsites.net/Android/' + "dsf")
 # try3.json()
 # {'label': 'Support', 'search_query': 'dsf', 'url': 'google.com'}
+# // labelToString = {
+#                    // 0: "SUPPORTS",
+# // 1: 'REFUTES',
+# // 2: 'NOT ENOUGH INFO'}
 
 
 
