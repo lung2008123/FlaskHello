@@ -72,7 +72,7 @@ def android_API(search_query):
     return temp_dict
 
 
-'''Android try with time wait'''
+'''Android try with time wait (only work in Azure)'''
 @app.route('/Android_wait/<search_query>')
 def android_API_wait(search_query):
     global temp_dict
@@ -87,6 +87,27 @@ def android_API_wait(search_query):
         temp_dict = {'label': 'NOT ENOUGH INFO', 'url': 'google.com', 'evidence': 'Is ghost is human I look out can!!!'}
 
     temp_dict['search_query'] = search_query
+    # temp_dict = {'label': 'Support', 'url': 'google.com', 'evidence': 'Is ghost is human I look out can!!!'}
+    # temp_dict['search_query'] = search_query
+    return temp_dict
+
+'''works in local'''
+@app.route('/Android_wait_local/<search_query>')
+def android_API_wait_local(search_query):
+    temp_dict = {}
+    time.sleep(3) # wait 3 second
+    # print("Waiting ends, returning " + str(search_query) + " and dictionary.")
+
+    if search_query == "Fake":
+        temp_dict['label'] = 'REFUTES'
+    elif search_query == "Fact":
+        temp_dict['label'] = 'SUPPORTS'
+    else:
+        temp_dict['label'] = 'NOT ENOUGH INFO'
+
+    temp_dict['search_query'] = search_query
+    temp_dict['url'] = 'google.com'
+    temp_dict['evidence'] = 'Is ghost is human I look out can!!!'
     # temp_dict = {'label': 'Support', 'url': 'google.com', 'evidence': 'Is ghost is human I look out can!!!'}
     # temp_dict['search_query'] = search_query
     return temp_dict
