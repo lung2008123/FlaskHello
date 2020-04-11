@@ -91,36 +91,50 @@ def android_API_wait(search_query):
     # temp_dict['search_query'] = search_query
     return temp_dict
 
+
 '''works in local'''
 @app.route('/Android_wait_local/<search_query>')
 def android_API_wait_local(search_query):
-    temp_dict = {}
-    time.sleep(3) # wait 3 second
+    temp_dict_that = {}
+    time.sleep(3)  # wait 3 second
     # print("Waiting ends, returning " + str(search_query) + " and dictionary.")
 
     if search_query == "Fake":
-        temp_dict['label'] = 'REFUTES'
+        temp_dict_that['label'] = 'REFUTES'
     elif search_query == "Fact":
-        temp_dict['label'] = 'SUPPORTS'
+        temp_dict_that['label'] = 'SUPPORTS'
     else:
-        temp_dict['label'] = 'NOT ENOUGH INFO'
+        temp_dict_that['label'] = 'NOT ENOUGH INFO'
 
-    temp_dict['search_query'] = search_query
-    temp_dict['url'] = 'google.com'
-    temp_dict['evidence'] = 'Is ghost is human I look out can!!!'
+    temp_dict_that['search_query'] = search_query
+    temp_dict_that['url'] = 'google.com'
+    temp_dict_that['evidence'] = 'Is ghost is human I look out can!!!'
     # temp_dict = {'label': 'Support', 'url': 'google.com', 'evidence': 'Is ghost is human I look out can!!!'}
     # temp_dict['search_query'] = search_query
-    return temp_dict
+    return temp_dict_that
 
+@app.route("/flask_post_testing_1/", methods=["POST"])
+def post_fun_1():
 
-# try3 = requests.get('https://flask-hello-dragon-1.azurewebsites.net/Android/' + "dsf")
-# try3.json()
-# {'label': 'Support', 'search_query': 'dsf', 'url': 'google.com'}
-# // labelToString = {
-#                    // 0: "SUPPORTS",
-# // 1: 'REFUTES',
-# // 2: 'NOT ENOUGH INFO'}
+    data_json = request.get_json()
+    search_query = data_json["search_query"]
 
+    # print(data_json["uid"])
+    # print(data_json["search_query"])
+
+    temp_dict_this = {}
+
+    if search_query == "Fake":
+        temp_dict_this['label'] = 'REFUTES'
+    elif search_query == "Fact":
+        temp_dict_this['label'] = 'SUPPORTS'
+    else:
+        temp_dict_this['label'] = 'NOT ENOUGH INFO'
+
+    temp_dict_this['search_query'] = data_json["search_query"]
+    temp_dict_this['url'] = 'google.com'
+    temp_dict_this['evidence'] = 'Is ghost is human I look out can!!!'
+    return temp_dict_this
 
 
 '''
@@ -138,9 +152,7 @@ if __name__ == '__main__':
     app.run(HOST, PORT)
 
 
-
 """
 git push to git push azure-first-working master
 
 """
-
